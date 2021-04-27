@@ -1,14 +1,15 @@
 # @package _group_
 
 _name: full_encoder
+load_pretrained_encoder_from: null
 input_feat_per_channel: -1
 input_channels: -1
 conv_kernel_sizes: "5,5"
 conv_channels: 1024
 
-encoder_embed_dim: 384
-encoder_ffn_embed_dim: 1536
-encoder_layers: 10
+encoder_embed_dim: 256
+encoder_ffn_embed_dim: 2048
+encoder_layers: 12
 encoder_attention_heads: 4
 encoder_normalize_before: true  
 
