@@ -1,0 +1,5 @@
+
+criterion: 
+  _name: multi_task_criterion
+  decoder_use_ctc: False
+  label_smoothing: 0.1

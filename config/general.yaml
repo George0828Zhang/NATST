@@ -1,0 +1,57 @@
+# @package _group_
+
+hydra:
+  run:
+    dir: .
+
+common:
+  reset_logging: true
+  user_dir: ???
+  log_format: simple
+  log_interval: 10
+  tensorboard_logdir: ???
+  fp16: true
+  seed: 73
+
+distributed_training:
+  distributed_world_size: 1
+
+optimization:
+  max_update: 50000
+  clip_norm: 1.0
+  update_freq: [8]
+  lr: [2e-3]
+
+optimizer: 
+  _name: adam
+  adam_betas: '(0.9, 0.98)'
+  adam_eps: 1e-9
+  weight_decay: 0.0001
+
+lr_scheduler:
+  _name: inverse_sqrt
+  warmup_updates: 10000
+
+dataset:
+  num_workers: 8
+  skip_invalid_size_inputs_valid_test: true
+  max_tokens: 20000
+  validate_interval: 1
+
+checkpoint:
+  save_dir: ???
+  save_interval: ${dataset.validate_interval}
+  save_interval_updates: 200
+  keep_interval_updates: 5
+  keep_last_epochs: -1
+  keep_best_checkpoints: 5
+  no_save: false
+  no_epoch_checkpoints: true
+  best_checkpoint_metric: wer
+  maximize_best_checkpoint_metric: false
+  patience: 50
+
+defaults:
+  - model: autoregressive
+  - task: st_only
+  - criterion: ls_cross_entropy

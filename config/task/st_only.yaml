@@ -1,0 +1,20 @@
+# @package _group_
+
+_name: speech_to_text_multi_task
+data: ???
+config_yaml: ???
+objectives: st
+eval_bleu: true
+eval_bleu_print_samples: true
+post_process: sentencepiece
+generation:
+  beam: 4
+eval_bleu_args:
+  sacrebleu_tokenizer: 13a
+  sacrebleu_lowercase: true
+  sacrebleu_char_level: false
+eval_wer_args:
+  wer_tokenizer: 13a
+  wer_remove_punct: true
+  wer_char_level: false
+  wer_lowercase: true

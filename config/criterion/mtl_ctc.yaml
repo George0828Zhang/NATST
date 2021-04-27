@@ -1,0 +1,7 @@
+
+criterion: 
+  _name: multi_task_criterion
+  label_smoothing: 0.1
+  asr_factor: 0.3
+  decoder_use_ctc: True
+  zero_infinity: True

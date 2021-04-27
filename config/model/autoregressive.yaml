@@ -1,0 +1,39 @@
+# @package _group_
+
+_name: s2t_transformer
+load_pretrained_encoder_from: null
+input_feat_per_channel: -1
+input_channels: -1
+conv_kernel_sizes: "5,5"
+conv_channels: 1024
+
+encoder_embed_dim: 256
+encoder_ffn_embed_dim: 2048
+encoder_layers: 12
+encoder_attention_heads: 4
+encoder_normalize_before: true  
+
+decoder_embed_dim: ${model.encoder_embed_dim}
+decoder_ffn_embed_dim: ${model.encoder_ffn_embed_dim}
+decoder_layers: 6
+decoder_attention_heads: 4
+decoder_normalize_before: true
+decoder_learned_pos: false
+decoder_layerdrop: 0.0
+decoder_output_dim: ${model.encoder_embed_dim}
+decoder_input_dim: ${model.encoder_embed_dim}
+
+share_decoder_input_output_embed: true
+no_token_positional_embeddings: false
+
+dropout: 0.1
+attention_dropout: 0.1
+activation_dropout: 0.1
+activation_fn: "relu"
+adaptive_softmax_cutoff: null
+adaptive_softmax_dropout: 0
+adaptive_input: false
+no_scale_embedding: false
+quant_noise_pq: 0
+max_source_positions: 6000
+max_target_positions: 1024
